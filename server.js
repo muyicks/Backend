@@ -117,7 +117,7 @@ app.put("/collection/:collectionName/:id", (req, res) => {
 app.delete("/collection/:collectionName/:id", (req, res) => {
   try {
     db.collection(req.params.collectionName)
-      .deleteOne({ _id: ObjectId(req.params.id) })
+      .deleteOne({ _id: new ObjectId(req.params.id) })
       .then((results) => {
         res.send(results);
       });
